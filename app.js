@@ -54,6 +54,6 @@ const startProcessing = async () => {
   console.log("user: " + config.STEEM_ACCOUNT + " - Thresold: " + config.RC_THRESHOLD.toString())
   startProcessing();
 
-  // Running `startProcessing` function every 6 hours
+  // Running `startProcessing` function every hour
   setInterval(startProcessing, 1 * 60 * 60 * 1000);
 })();

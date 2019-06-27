@@ -34,7 +34,7 @@ const startProcessing = async () => {
       const rc = Number(ac.rc_accounts[0].rc_manabar.current_mana);
       log(config.STEEM_ACCOUNT + '\'s RC is ' + rc.toString());
       if( rc > config.RC_THRESHOLD * 1000000000000 ) {
-        client.broadcast.sendOperations([op], dsteem.PrivateKey.from(config.ACTIVE_WIF))
+        client.broadcast.sendOperations([op], PrivateKey.from(config.ACTIVE_WIF))
         .then((res) => {
           console.log(res);
           log('You have successfully claimed a discounted account');
@@ -51,6 +51,7 @@ const startProcessing = async () => {
 
 (async () => {
   log("Process Started ")
+  console.log("user: " + config.STEEM_ACCOUNT + " - Thresold: " + config.RC_THRESHOLD.toString())
   startProcessing();
 
   // Running `startProcessing` function every 6 hours
